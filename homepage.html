@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> SinoSurfing </title>
+<script language="javascript" type="text/javascript">
+var timerid = 0;
+var images = new Array(	"https://farm5.staticflickr.com/4277/35393934186_39a5b2375d_b.jpg",
+			"https://farm5.staticflickr.com/4282/35267015492_a7de67a682_b.jpg",
+			"https://farm5.staticflickr.com/4206/35433618635_c9beb7bc8a_b.jpg"
+);
+var countimages = 0;
+function startTime()
+{
+	if(timerid)
+	{
+		timerid = 0;
+	}
+	var tDate = new Date();
+	
+	if(countimages == images.length)
+	{
+		countimages = 0;
+	}
+	if(tDate.getSeconds() % 5 == 0)
+	{
+		document.getElementById("img1").src = images[countimages];
+	}
+	countimages++;
+	
+	timerid = setTimeout("startTime()", 1000);
+}
+</script>
+
+<link href="style.css" type="text/css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" type="text/css" rel="stylesheet" >
+
+<body onload="startTime();">
+<img id="img1" src="image3.jpg" />
+<h1> Welcome to SinoSurfing </h1>
+<p> This website allows you to find temporary housing in America and Taiwan for vacationing purposes. </p>
+<a href="https://www.google.com/"> Login </a>
+<br /> 
+<a href="signup.html"> Sign up and create a new account </a>
+<br /> 
+
+<form  action="login.php" method="post"> 
+     <h1>Log in</h1> 
+     <p> 
+          <label for="username" class="uname" data-icon="u" >Username:</label>
+          <input id="username" name="username" required="required" type="text" placeholder="Username"/>
+     </p>
+     <p> 
+          <label for="password" class="youpasswd" data-icon="p">Password:</label>
+          <input id="password" name="password" required="required" type="password" placeholder="Password" /> 
+     </p>
+     <p class="keeplogin"> 
+          <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+          <label for="loginkeeping">Keep me logged in</label>
+     </p>
+     <p class="login button"> 
+          <input type="submit" value="Login" /> 
+     </p>
+</form>
+
+<form  action="register.php" method="post"> 
+    <h1> Sign Up </h1> 
+<p> 
+First Name: <input type="text" name="fName"  /> <br /> <br /> 
+</p> 
+<p> 
+Last Name: <input type="text" name="lName"  /> <br /> <br /> 
+</p>
+<!--Address-->
+<p> 
+Email: <input type="text" name="email"  /> <br /> <br /> 
+</p>
+<p>
+Password: <input type="text" name="pword"  /> <br /> <br /> 
+</p>
+<p> 
+Confirm Password: <input type="text" name="cpword"  /> <br /> <br /> 
+</p>
+<!--Date of Birth
+Gender -->
+<input type="submit" name="formSubmit" value="Create an Account" />
+
+
+
+</body>
+</html>
